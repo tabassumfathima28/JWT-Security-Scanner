@@ -1,4 +1,8 @@
 # JWT Security Scanner 🔐
+📦 Available on PyPI
+```bash
+pip install jwt-security-scanner
+
 
 > A Python-based command-line tool that automatically scans JWT tokens for security vulnerabilities and generates professional security reports.
 
@@ -19,7 +23,8 @@ This tool acts like a **security doctor for JWT tokens** — you give it a token
 - Generates professional HTML security report
 - Generates text report for documentation
 - Includes security recommendations
-- Works on any JWT token
+-  Works with standard JWTs signed using common algorithms (e.g., HS256, RS256).
+
 
 ---
 
@@ -43,41 +48,42 @@ This tool acts like a **security doctor for JWT tokens** — you give it a token
 - **Colorama** — Terminal color support
 
 ---
-
 ## Installation
 
-### Step 1 — Clone the repository
+Install from PyPI:
+
 ```bash
-git clone https://github.com/YOURUSERNAME/JWT-Security-Scanner.git
-cd JWT-Security-Scanner
+pip install jwt-security-scanner
 ```
 
-### Step 2 — Install dependencies
+If `pip` is not recognized:
+
 ```bash
-pip install -r requirements.txt
+py -m pip install jwt-security-scanner
 ```
 
 ---
 
 ## Usage
 
-### Run the scanner
+Run:
+
 ```bash
-python jwt_scanner.py
+jwt-scanner
 ```
 
-### Or pass token directly
+### Windows Users
+
+If `jwt-scanner` is not recognized, run:
+
 ```bash
-python jwt_scanner.py YOUR_JWT_TOKEN_HERE
+py -m jwt_scanner.scanner
 ```
 
-### Generate a test vulnerable token
-```bash
-python -c "import jwt; print(jwt.encode({'user': 'admin', 'password': 'secret123'}, 'secret', algorithm='HS256'))"
-```
+```markdown
+## License
 
----
-
+This project is licensed under the MIT License.
 ## Example Output
 
 ```
@@ -120,6 +126,7 @@ Professional security report with color coded risk levels, summary dashboard, fi
 - Automated vulnerability scanning techniques
 - Professional security report generation
 - The difference between encoding and encryption
+- Python package publishing with PyPI
 
 ---
 
@@ -131,15 +138,23 @@ This tool simulates what penetration testers and security engineers do when audi
 
 ## Project Structure
 
-```
 JWT-Security-Scanner/
 │
-├── jwt_scanner.py       Main scanner with all checks
-├── requirements.txt     Python dependencies
-└── README.md           Project documentation
-```
-
+├── jwt_scanner/
+│   ├── __init__.py
+│   └── scanner.py
+├── setup.py
+├── pyproject.toml
+├── requirements.txt
+├── README.md
 ---
+SCREENSHOTS:
+<img width="1906" height="947" alt="image" src="https://github.com/user-attachments/assets/2b96c95a-2803-4b80-a813-7fc30ad7096c" />
+<img width="1607" height="272" alt="image" src="https://github.com/user-attachments/assets/5fce963c-c35b-4e5b-ab00-cfbf2378a956" />
+<img width="1208" height="2228" alt="_C__Users_Dell_jwt-security-scanner_jwt_report_20260627_141033 html" src="https://github.com/user-attachments/assets/4effd147-8312-47d0-9cff-9d1d1a22ccff" />
+<img width="735" height="875" alt="image" src="https://github.com/user-attachments/assets/8f902496-4975-4523-bacd-ce7eccf8543c" />
+
+
 
 ## Also Check Out
 
@@ -150,7 +165,7 @@ My other cybersecurity project:
 
 ## Connect With Me
 
-Built by an aspiring SOC Analyst learning cybersecurity through hands-on projects.
+Built as part of my cybersecurity learning journey with a focus on application security and secure authentication.
 
 Connect on https://www.linkedin.com/in/tabassumfathima2812/
 

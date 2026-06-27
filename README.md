@@ -1,62 +1,85 @@
-# JWT Security Scanner 🔐
-📦 Available on PyPI
-```bash
-pip install jwt-security-scanner
+# 🔐 JWT Security Scanner
 
-
-> A Python-based command-line tool that automatically scans JWT tokens for security vulnerabilities and generates professional security reports.
+> Analyze JSON Web Tokens (JWTs) for common security vulnerabilities and generate professional security reports.
 
 ---
 
-## What is This Tool?
+## 📦 Available on PyPI
 
-JWT (JSON Web Token) is used by millions of websites to handle user authentication. But poorly configured JWT tokens can be exploited by hackers to bypass login, steal accounts, or gain admin access.
-
-This tool acts like a **security doctor for JWT tokens** — you give it a token, it runs 5 security checks and tells you exactly what's wrong and how to fix it.
-
----
-
-## Features
-
-- Detects 5 critical JWT vulnerability categories
-- Beautiful colored terminal output
-- Generates professional HTML security report
-- Generates text report for documentation
-- Includes security recommendations
--  Works with standard JWTs signed using common algorithms (e.g., HS256, RS256).
-
-
----
-
-## Vulnerabilities Detected
-
-| Check | What it detects | Risk Level |
-|-------|----------------|------------|
-| Algorithm Check | Dangerous 'none' algorithm usage | CRITICAL |
-| Weak Secret Key | Guesses secret key from common passwords | CRITICAL |
-| Token Expiry | Missing or expired expiry time | HIGH |
-| Sensitive Data | Passwords or private data in payload | HIGH |
-| Token Claims | Missing issuer, subject, audience | MEDIUM |
-
----
-
-## Tools and Technologies
-
-- **Python 3** — Core programming language
-- **PyJWT** — JWT token decoding and validation
-- **Rich** — Beautiful terminal formatting
-- **Colorama** — Terminal color support
-
----
-## Installation
-
-Install from PyPI:
+Install the tool directly:
 
 ```bash
 pip install jwt-security-scanner
 ```
 
-If `pip` is not recognized:
+Run the scanner:
+
+```bash
+jwt-scanner
+```
+
+> **Windows Users:** If `jwt-scanner` is not recognized, run:
+
+```bash
+py -m jwt_scanner.scanner
+```
+
+---
+
+## 📖 Project Overview
+
+JWT (JSON Web Token) is widely used for authentication in modern web applications. However, insecure JWT implementations can expose applications to authentication bypass, privilege escalation, token forgery, and unauthorized access.
+
+This project is a **Python-based command-line security scanner** that analyzes JWTs for common security misconfigurations and generates detailed security reports with remediation recommendations.
+
+---
+
+## 🚀 Features
+
+- ✅ Detects 5 common JWT security vulnerability categories
+- 🎨 Beautiful colored terminal output using Rich
+- 📄 Generates professional HTML security reports
+- 📝 Generates text reports for documentation
+- 🛡 Provides security recommendations
+- ⚡ Simple command-line interface
+- 📦 Available as a PyPI package
+
+---
+
+## 🔍 Security Checks
+
+| Security Check | Description | Risk |
+|---------------|-------------|------|
+| 🔐 Algorithm Check | Detects insecure `none` algorithm usage | 🔴 Critical |
+| 🔑 Weak Secret Key | Detects commonly used weak HMAC secrets | 🔴 Critical |
+| ⏳ Expiry Check | Detects missing or expired tokens | 🟠 High |
+| 📄 Sensitive Data | Detects passwords or confidential data in payload | 🟠 High |
+| 🛡 Token Claims | Checks missing `iss`, `sub`, `aud`, `iat` claims | 🟡 Medium |
+
+---
+
+
+---
+
+## ⚙️ Technologies Used
+
+- Python 3
+- PyJWT
+- Rich
+- Colorama
+- Requests
+
+---
+
+## 💻 Installation
+
+### Install from PyPI
+
+```bash
+pip install jwt-security-scanner
+```
+
+If `pip` is unavailable:
 
 ```bash
 py -m pip install jwt-security-scanner
@@ -64,80 +87,98 @@ py -m pip install jwt-security-scanner
 
 ---
 
-## Usage
+## ▶️ Usage
 
-Run:
+Launch the scanner:
 
 ```bash
 jwt-scanner
 ```
 
-### Windows Users
-
-If `jwt-scanner` is not recognized, run:
+Or, if the command is not recognized on Windows:
 
 ```bash
 py -m jwt_scanner.scanner
 ```
 
-```markdown
-## License
+Follow the prompts to paste a JWT token. The scanner will automatically:
 
-This project is licensed under the MIT License.
-## Example Output
+- Decode the token
+- Perform security analysis
+- Display findings
+- Generate HTML and TXT reports
 
-```
+---
+
+## 📊 Example Output
+
+```text
 JWT Security Scanner
-Finds vulnerabilities in JWT tokens
 
 SECURITY FINDINGS
-CRITICAL   WEAK SECRET KEY FOUND: 'secret'
-HIGH       No expiry time found!
-HIGH       Sensitive fields found: password
+
+CRITICAL   Weak Secret Key Found
+HIGH       No Expiration Time
+HIGH       Sensitive Data Detected
 
 SECURITY SUMMARY
-CRITICAL   1
-HIGH       2
-MEDIUM     0
-LOW        5
 
-CRITICAL VULNERABILITIES FOUND! This token is DANGEROUS!
+Critical : 1
+High     : 2
+Medium   : 0
+Low      : 5
+
+Verdict:
+CRITICAL VULNERABILITIES FOUND
 ```
 
 ---
 
-## Reports Generated
+## 📄 Reports Generated
 
-After every scan the tool automatically generates:
+Every scan automatically generates:
 
-### 1. Text Report
-Plain text file with all findings — perfect for documentation
+### 📝 Text Report
 
-### 2. HTML Report
-Professional security report with color coded risk levels, summary dashboard, findings table, recommendations and cybersecurity quotes
+- Plain text format
+- Easy to archive
+- Useful for documentation
 
----
+### 🌐 HTML Report
 
-## What I Learned Building This
-
-- JWT token structure — Header, Payload, Signature
-- Common JWT vulnerabilities and how attackers exploit them
-- Python security tool development
-- Automated vulnerability scanning techniques
-- Professional security report generation
-- The difference between encoding and encryption
-- Python package publishing with PyPI
+- Modern responsive design
+- Severity dashboard
+- Findings table
+- Token information
+- Security recommendations
 
 ---
 
-## Real World Application
+## 📚 What I Learned
 
-This tool simulates what penetration testers and security engineers do when auditing web applications. JWT vulnerabilities are listed in the **OWASP Top 10** and are responsible for thousands of security breaches every year.
+- JWT Architecture (Header • Payload • Signature)
+- Digital Signatures
+- HMAC & SHA-256
+- HS256 vs RS256
+- Base64URL Encoding
+- JWT Security Best Practices
+- Python Security Tool Development
+- HTML Report Generation
+- Python Package Publishing (PyPI)
 
 ---
 
-## Project Structure
+## 🌍 Real-World Application
 
+JWT security is an important part of modern web application security. During security assessments, penetration testers and application security engineers review JWT implementations to identify weaknesses such as insecure algorithms, weak signing secrets, missing expiration, and improper token validation.
+
+This tool helps automate those checks for learning and testing purposes.
+
+---
+
+## 📂 Project Structure
+
+```text
 JWT-Security-Scanner/
 │
 ├── jwt_scanner/
@@ -147,28 +188,59 @@ JWT-Security-Scanner/
 ├── pyproject.toml
 ├── requirements.txt
 ├── README.md
----
-SCREENSHOTS:
-<img width="1906" height="947" alt="image" src="https://github.com/user-attachments/assets/2b96c95a-2803-4b80-a813-7fc30ad7096c" />
-<img width="1607" height="272" alt="image" src="https://github.com/user-attachments/assets/5fce963c-c35b-4e5b-ab00-cfbf2378a956" />
-<img width="1208" height="2228" alt="_C__Users_Dell_jwt-security-scanner_jwt_report_20260627_141033 html" src="https://github.com/user-attachments/assets/4effd147-8312-47d0-9cff-9d1d1a22ccff" />
-<img width="735" height="875" alt="image" src="https://github.com/user-attachments/assets/8f902496-4975-4523-bacd-ce7eccf8543c" />
-
-
-
-## Also Check Out
-
-My other cybersecurity project:
-- [AI-Powered SIEM Home Lab](https://github.com/tabassumfathima28/SIEM-HOME-LAB-PROJECT) — Detects real cyber attacks using Elastic SIEM and Tines automation
+└── .gitignore
+```
 
 ---
 
-## Connect With Me
+## 🚀 Running from Source
 
-Built as part of my cybersecurity learning journey with a focus on application security and secure authentication.
+Clone the repository:
 
-Connect on https://www.linkedin.com/in/tabassumfathima2812/
+```bash
+git clone https://github.com/tabassumfathima28/JWT-Security-Scanner.git
+cd JWT-Security-Scanner
+```
+
+Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+Run:
+
+```bash
+py jwt_scanner\scanner.py
+```
 
 ---
 
-> "Security is not a product, but a process." — Bruce Schneier
+## 🔗 Related Project
+
+### 🛡 AI-Powered SIEM Home Lab
+
+A complete SIEM lab built using Elastic SIEM and Tines automation.
+
+https://github.com/tabassumfathima28/SIEM-HOME-LAB-PROJECT
+
+---
+
+## 👩‍💻 Author
+
+**Tabassum Fathima**
+
+Cybersecurity Undergraduate | Aspiring SOC Analyst
+
+- GitHub: https://github.com/tabassumfathima28
+- LinkedIn: https://www.linkedin.com/in/tabassumfathima2812/
+
+---
+
+## ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub!
+
+---
+
+> **"Security is not a product, but a process." — Bruce Schneier**

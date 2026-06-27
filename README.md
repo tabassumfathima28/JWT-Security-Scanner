@@ -152,7 +152,7 @@ My other cybersecurity project:
 
 Built by an aspiring SOC Analyst learning cybersecurity through hands-on projects.
 
-Connect on [LinkedIn](#)
+Connect on https://www.linkedin.com/in/tabassumfathima2812/
 
 ---
 
